@@ -17,7 +17,7 @@
     Each program has 2 parts. The `preprocessor directives` and the `main function`
 
     Example.cpp:
-    
+
     ```
     #include <iostream>
 
@@ -29,7 +29,7 @@
     ```
 
     breaking down this line `#include <iostream>`:
-    - # - The hash signals the preprocessor directive line
+    - `#` - The hash signals the preprocessor directive line
     - include - add the directives of the given library
     - iostream - the given library
     - <> - find this where all the standard libraries are stored
@@ -80,3 +80,53 @@ Explain what the code is supposed to do.
         std::cin >> year;
         ...
     ```
+
+11. Style Guide
+    A straightforward style guide is:
+                   [Modern C++ Coding Guidelines](https://github.com/Microsoft/AirSim/blob/master/docs/coding_guidelines.md)
+
+    For a more detailed guideline:
+                   [Google C++ Style Guideline](https://google.github.io/styleguide/cppguide.html)
+
+12. Quiz: Write Hello World
+    ```
+    #include <iostream>
+
+    int main() {
+        std::cout << "Hello world, I am ready for C++";
+        return 0;
+    }
+    ```
+
+14. Prog Quiz Checker
+    To Compile:
+        `g++ main.cpp -o main.out`
+        - `g++` is the C++ compiler
+        - `main.cpp` is the file name
+        - `-o` is for the name of the output
+        - `main.out` is the name of the output
+
+    To Run:
+        `./main.out`
+
+    They run `./main.out and check the output against their answer`
+
+15. Using Namespace
+    This tells the compiler to assume we are using the standard library, so we don’t have to write `std::`
+    ```
+    using namespace std;
+    int main()
+    {
+    }
+    ```
+
+19. Write to the Console
+    - Any string literal must be enclosed in double quotes
+    - Numbers do not require quotes
+    - If a variable name is used, the value of the variable is printed
+    ```
+    int integer = 4543;
+    std::cout << "The value of integer is " << integer << "\n";
+    ```
+
+    - note that cout does not automatically add newlines. You must add them using the escape sequence “\n”
