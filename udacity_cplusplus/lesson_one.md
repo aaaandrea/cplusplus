@@ -386,3 +386,248 @@ int main()
 
 using namespace std
 ```
+
+### User Input
+In C++ we use `std::cin` for reading from the console, just like how we use `std::cout` for writing to the console.
+
+To test run this in the terminal:
+```
+~$ g++ main.cpp -o main.cout
+~$ ./main.out input.txt
+~$ ./main.out stdin=open("input.txt", "r")
+
+```
+
+An example of user input being taken from input.txt
+
+`main.cpp` example
+
+```
+/*This program accepts inputs from the input.txt file*/
+
+#include <iostream>
+#include <string>
+
+
+int main()
+{
+    int year = 0;
+    int age = 0;
+    std::string name = " ";
+    //print a message to the user
+    std::cout<<"What year is your favorite? ";
+
+    //get the user response and assign it to the variable year
+    std::cin >> year;
+
+    //output response to user
+    std::cout<<"How interesting, your favorite year is "<<year<<"!\n";
+
+    //print a message to the user
+    std::cout<<"At what age did you learn to ride a bike? ";
+
+    //get the user response and assign it to the variable age
+    std::cin >> age;
+
+    //output response to user
+    std::cout<<"How interesting you learned to ride at "<<age<<"!\n";
+
+    std::cout<<"What is your name? ";
+    std::cin>>name;
+    std::cout<<"Hello "<<name<<" !\n";
+    return 0;
+```
+
+`input.txt` example
+
+```
+1991
+5
+Bob
+```
+NOTE: that `std::cin` will not retrieve strings that have a space in them. It will see the space as the end of the input.
+
+### String Input
+So, we now know that std::cin will not retrieve strings that have a space in them. It will see the space as the end of the input. We will obviously need a method to enter strings.
+
+C++ has a function called getline. You can find detailed information at the link posted with this video.
+
+The basic form of [getline](http://www.cplusplus.com/reference/string/string/getline/) is:
+
+> getline: it will retrieve characters from the std::cin source and stores them in the variable called variableName. It will retrieve all characters until the newline or “\n” is detected.
+
+The programmer can also specify a different delimiter if the newline character is not desired.
+
+```
+
+#include<iostream>
+#include<string>
+
+int main()
+{
+    std::string userName;
+    std::cout<<"Tell me your nickname?: ";
+    std::getline(std::cin, userName);
+    std::cout<<"Hello "<<userName<<"\n";
+    return 0;
+}
+```
+eg with getline and extra input:
+```
+/*Goal: practice std::cin for strings
+**Write a program that prompts two user2 for their
+**name, address, and phone number.
+**Print the information to the console in the following format:
+**name
+**\/t\/t address
+**\/t\/tphone number
+*/
+
+#include<iostream>
+#include<string>
+
+int main()
+{
+    std::string name1, address1, phoneNo1;
+    std::string name2, address2, phoneNo2;
+
+    //get user1 information
+    std::cout<<"User1 what is your name?\n";
+    std::getline(std::cin, name1);
+    std::cout<<"User1 what is your address?\n";
+    std::getline(std::cin, address1);
+    std::cout<<"User1 what is your phone number?\n";
+    std::getline(std::cin, phoneNo1);
+
+    //get user2 information
+    std::cout<<"User2 what is your name?\n";
+    std::getline(std::cin, name2);
+    std::cout<<"User2 what is your address?\n";
+    std::getline(std::cin, address2);
+    std::cout<<"User2 what is your phone number?\n";
+    std::getline(std::cin, phoneNo2);
+
+    //print information
+    std::cout<<"\n\n"<<name1<<"\n";
+    std::cout<<"\t\t"<<address1<<"\n";
+    std::cout<<"\t\t"<<phoneNo1<<"\n";
+
+    std::cout<<"\n\n"<<name2<<"\n";
+    std::cout<<"\t\t"<<address2<<"\n";
+    std::cout<<"\t\t"<<phoneNo2<<"\n";    
+    return 0;
+}
+```
+
+###  More on String Inputs, Steps for using Stringstream
+Steps for using Stringstream:
+1. Include the Stringstream library.
+    `#include<sstream>`
+2. Use getline to get the string from the user
+    `std::getline(std::cin, stringVariable);`
+3. Convert the string variable to a float variable.
+    `std::stringstream(stringVariable) >> numericVariable;`
+
+For example:
+```
+#include <iostream>
+#include <string>
+#include <sstream>
+
+int main ()
+{
+  std::string stringLength;
+  float inches = 0;
+  float yardage = 0;
+
+  std::cout << "Enter number of inches: ";
+  std::getline (std::cin,stringLength);
+  std::stringstream(stringLength) >> inches;
+  std::cout<<"You entered "<<inches<<"\n";
+  yardage = inches/36;
+  std::cout << "Yardage is " << yardage;
+  return 0;
+}
+```
+
+Actual quiz result:
+```
+/*Goal: practice getting string inputs and
+**converting them to numeric variables using
+**stringstream.
+**
+**Prompt the user for the length of a room.
+**Then prompt for the width of the room.
+**Print out the area of the room.
+*/
+
+#include <iostream>
+#include <string>
+#include <sstream>
+
+int main ()
+{
+  std::string stringLength, stringWidth;
+  float length = 0;
+  float width = 0;
+  float area = 0;
+
+  std::cout << "Enter the length of the room: ";
+  //get the length as a string
+  std::getline (std::cin,stringLength);
+  //convert to a float
+  std::stringstream(stringLength) >> length;
+  //get the width as a string
+  std::cout << "Enter width: ";
+  std::getline (std::cin,stringWidth);
+  //convert to a float
+  std::stringstream(stringWidth) >> width;
+  area = length * width;
+  std::cout << "\nThe area of the room is: " << area << std::endl;
+  return 0;
+}
+```
+
+## How to learn C++
+Like taking a city tour. Church, museum, restaurant.
+Get an overview and then get into the details.
+
+Take examples in order to take in abstract ideas.
+
+### C++ Guidelines
+effort to focus people's attention on what works, and away from the obvious mistakes.
+
+
+### Debugging Practice
+Find the errors so the code executes correctly.
+`main.cpp`
+```
+#include <main.hpp>
+
+ void main ()
+ {
+   int FTemp = 0
+   int CTemp = 0;
+
+   cout >> "Enter a Farenheit temperature: ";
+   cin << FTemp;
+
+   CTemp = FTemp - 32 / (9/5);
+   cout >> "\n <<FTemp >> " in Farenheit = "  >> CTemp >> in Celsius\n";
+   return 0;
+ }
+```
+
+`main.hpp`
+```
+/*The header file*/
+
+#include<iostream>
+
+using namespace std;
+```
+
+`input.txt`
+```
+32
+```
