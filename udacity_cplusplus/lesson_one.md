@@ -260,3 +260,129 @@ Ints         Floats        Doubles
 The text with tabs
 Ints    Floats    Doubles
 ```
+
+
+Formatting Output Quiz:
+
+```
+/*Formatting Output
+**Goal: practice using cout to format output to console
+**Print the variables in three columns:
+**Ints, Floats, Doubles
+*/
+
+#include <iostream>
+#include <iomanip>
+
+    int main()
+    {
+         int a = 45;
+         float b = 45.323;
+         double c = 45.5468;
+         int aa = a + 9;
+         float bb = b + 9;
+         double cc = c + 9;
+         int aaa = aa + 9;
+         float bbb = bb + 9;
+         double ccc = cc + 9;
+
+         std::cout << "print with set width = 10\n";
+         std::cout << "Ints" <<s td::setw(10);
+         std::cout << "Floats" << std::setw(10);
+         std::cout << "Doubles" << std::setw(10) << "\n";
+
+         std::cout << a;
+         std::cout << std::setw(12) << b;
+         std::cout << std::setw(10) << c << "\n";    
+
+         std::cout << aa;
+         std::cout << std::setw(12) << bb;
+         std::cout << std::setw(10) << cc << "\n";  
+
+         std::cout << aaa;
+         std::cout << std::setw(12) << bbb;
+         std::cout << std::setw(10) << ccc << "\n\n";
+
+         std::cout << "print with tabs\n";
+         std::cout << "Int" << "\tFloats" << "\tDoubles\n";
+         std::cout << aaa << "\t" << bbb <<"\t" << ccc << "\n";
+
+         return 0;
+    }
+```
+
+### File IO
+- Include the `<fstream>` library - library with all needs for reading/writing a file
+- Create a stream (input, output, both)
+     - ofstream myfile; (for writing to a file)
+     - ifstream myfile; (for reading a file)
+     - fstream myfile; (for reading and writing a file)
+- Open the file  `myfile.open(“filename”)`;
+- Write or read the file
+- Close the file `myfile.close()`;
+
+```
+#include <iostream>
+#include <fstream>
+#include <string>
+using namespace std;
+
+int main () {
+    string line;
+    //create an output stream to write to the file
+    //append the new lines to the end of the file
+    ofstream myfileI ("input.txt", ios::app);
+    if (myfileI.is_open())
+    {
+        myfileI << "\nI am adding a line.\n";
+        myfileI << "I am adding another line.\n";
+        myfileI.close();
+    }
+    else cout << "Unable to open file for writing";
+
+    //create an input stream to read the file
+    ifstream myfileO ("input.txt");
+    //During the creation of ifstream, the file is opened.
+    //So we do not have explicitly open the file.
+    if (myfileO.is_open())
+    {
+        while ( getline (myfileO,line) )
+        {
+            cout << line << '\n';
+        }
+        myfileO.close();
+    }
+
+    else cout << "Unable to open file for reading";
+
+    return 0;
+}
+```
+
+### Header Files
+- Header files contain information about how to do a task
+- The main program contains information about what to do
+
+- `main.cpp`: all the code on **what** the program does
+- `main.hpp`: all the code on **how** the program does a task
+
+`main.cpp` example:
+
+```
+#include "main.hpp"
+
+int main()
+{
+    cout << "Hello, I use header files!";
+    return 0;
+}
+```
+
+`main.hpp` example:
+
+```
+#include <iostream>
+#include <string>
+
+using namespace std
+```
