@@ -1,17 +1,7 @@
 
 
-## Lesson 1: Basics
-### Introduction to C++
+## Basics
 
-### Why learn C++
-
-### Where is C++ used
-
-### What makes C++ different
-
-### Course Introduction
-
-### Textbook recommendations
 
 ### Program Structure
 
@@ -39,10 +29,6 @@ breaking down main()
 - returns an int
 - only prints the string
 - return 0: customary, means the program returns without errors.
-
-### Prog. Quizzes Explained
-
-_don't care_
 
 ### Comments
 
@@ -100,7 +86,7 @@ int main() {
 }
 ```
 
-### Prog Quiz Checker
+#### Prog Quiz Checker
 
 - To Compile:
     `g++ main.cpp -o main.out`
@@ -186,7 +172,7 @@ bool size = 1
 In C++ we can degin a constant using `const`
     eg. `const int weightGoal = 1000;`
 
-### Enumerated Constants
+#### Enumerated Constants
 
 The programmer can create a new variable type and then assign a finite number of values to it.
 
@@ -262,7 +248,7 @@ Ints    Floats    Doubles
 ```
 
 
-Formatting Output Quiz:
+### Formatting Output Quiz:
 
 ```
 /*Formatting Output
@@ -414,27 +400,29 @@ int main()
     int year = 0;
     int age = 0;
     std::string name = " ";
+
     //print a message to the user
-    std::cout<<"What year is your favorite? ";
+    std::cout << "What year is your favorite? ";
 
     //get the user response and assign it to the variable year
     std::cin >> year;
 
     //output response to user
-    std::cout<<"How interesting, your favorite year is "<<year<<"!\n";
+    std::cout << "How interesting, your favorite year is " << year << "!\n";
 
     //print a message to the user
-    std::cout<<"At what age did you learn to ride a bike? ";
+    std::cout << "At what age did you learn to ride a bike? ";
 
     //get the user response and assign it to the variable age
     std::cin >> age;
 
     //output response to user
-    std::cout<<"How interesting you learned to ride at "<<age<<"!\n";
+    std::cout << "How interesting you learned to ride at "<<age<<"!\n";
 
-    std::cout<<"What is your name? ";
-    std::cin>>name;
-    std::cout<<"Hello "<<name<<" !\n";
+    std::cout << "What is your name? ";
+    std::cin >> name;
+
+    std::cout << "Hello " << name << " !\n";
     return 0;
 ```
 
@@ -588,7 +576,7 @@ int main ()
 }
 ```
 
-## How to learn C++
+### How to learn C++
 Like taking a city tour. Church, museum, restaurant.
 Get an overview and then get into the details.
 
