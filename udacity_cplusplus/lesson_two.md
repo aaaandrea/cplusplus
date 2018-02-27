@@ -116,3 +116,4 @@ For example `g++ assignment2.cpp -o a2`:
 - `a2` is the name I want to give the executable file.
 
 ### Executing in the Terminal
+see `src/main.cpp` and `src/input.txt`
