@@ -117,3 +117,26 @@ For example `g++ assignment2.cpp -o a2`:
 
 ### Executing in the Terminal
 see `src/main.cpp` and `src/input.txt`
+
+To run the executable file we type `./filename`
+To execute the executable file `a2` we run `./a2`
+
+output returns the average of the 15 numbers:
+```
+Enter a number: 123
+Enter a number: 2
+Enter a number: 34
+Enter a number: 6
+Enter a number: 57
+Enter a number: 9
+Enter a number: 876
+Enter a number: 90
+Enter a number: 11
+Enter a number: 23
+Enter a number: 876
+Enter a number: 4
+Enter a number: 13
+Enter a number: 87
+Enter a number: 66
+Maximum number = 876
+```

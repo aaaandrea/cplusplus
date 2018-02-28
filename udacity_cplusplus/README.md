@@ -1,5 +1,6 @@
 ## Udacity C++ course
 Notes from working through the C++ Udacity course
 
-- [lesson 1](./lesson_one.md)
-- [lesson 2](./lesson_two.md)
+- [Basics](./lessons/lesson_one.md)
+- [Compilation and Execution](./lessons/lesson_two.md)
+- [Arithmetic Operations](./lessons/lesson_three.md)
