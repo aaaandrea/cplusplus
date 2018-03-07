@@ -10,22 +10,6 @@ May need to `#include <cmath>`
 | / | Division |
 | % | Modulo |
 
-### Increment and decrement (++, --)
-```
-++x;
-x+=1;
-x=x+1;
-```
-In the early C compilers, the three previous expressions may have produced different executable code depending on which one was used. Nowadays, this type of code optimization is generally performed automatically by the compiler, thus the three expressions should produce exactly the same executable code.
-
-A peculiarity of this operator is that it can be used both as a prefix and as a suffix. That means that it can be written either before the variable name (++x) or after it (x++). Although in simple expressions like x++ or ++x, both have exactly the same meaning; in other expressions in which the result of the increment or decrement operation is evaluated, they may have an important difference in their meaning: In the case that the increase operator is used as a prefix (++x) of the value, the expression evaluates to the final value of x, once it is already increased. On the other hand, in case that it is used as a suffix (x++), the value is also increased, but the expression evaluates to the value that x had before being increased. Notice the difference:
-
-| Example 1 | Example 2 |
-|---|---|
-| x = 3 | x = 3 |
-| y = ++x | y = x++ |
-| _x contains 4, y contains 4_ | _x contains 4, y contains 3_ |
-
 eg.
 ```
 #include <cmath>
@@ -152,3 +136,164 @@ answer = floatNumber/4 = 16.5
 charC = answer = 
 integer = floatNumber = 16
 ```
+
+#### Quiz
+```
+// What is the output of this program?
+
+     #include <iostream>
+
+     int main()
+     {
+          float width = 4.5;
+          float height = 5.5;
+
+          int area = width * height;
+          std::cout << "area = " << area;
+          return 0;
+     }
+```
+
+`area = 24`
+
+OR
+
+```
+#include <iostream>
+int main(void)
+{
+    int numerator = 4;
+    int denominator = 5;
+
+    int answer = numerator / denominator;
+    std::cout<<"answer = "<<answer;
+    return 0;
+}
+```
+
+// What is the output of this code?
+
+`answer = 0.8`
+
+more
+
+```
+/*Goal: fix the variable types problem.
+**This program outputs the wrong answer
+**even though it compiles and executes without errors.
+**Fix it so that it outputs the correct value.
+*/
+
+#include <iostream>
+int main(void)
+{
+    int numerator = 4;
+    int denominator = 5;
+
+    int answer = numerator / denominator;
+    std::cout<<"answer = "<<answer;
+    return 0;
+}
+```
+
+### PreFix and PostFix
+### Increment and decrement (++, --)
+
+- Prefix operators increment the value of the variable, then return the reference to the variable.
+
+- Postfix operators create a copy of the variable and increments the value of the variable. Then it returns a copy from BEFORE the increment.
+
+```
+++x;
+x+=1;
+x=x+1;
+```
+In the early C compilers, the three previous expressions may have produced different executable code depending on which one was used. Nowadays, this type of code optimization is generally performed automatically by the compiler, thus the three expressions should produce exactly the same executable code.
+
+| Example 1 | Example 2 |
+|---|---|
+| x = 3 | x = 3 |
+| y = ++x | y = x++ |
+| _x contains 4, y contains 4_ | _x contains 4, y contains 3_ |
+
+#### Code Sample
+```
+/*Goal: Practice PreFix and PostFix
+**
+*/
+
+#include<iostream>
+
+using namespace std;
+
+int main()
+{
+    int a, b = 0;
+    int post, pre = 0;
+    cout<<"Inital values: \t\t\tpost = "<<post<<" pre= "<<pre<<"\n";
+    post = a++;
+    pre = ++b;
+    cout<<"After one postfix and prefix: \tpost = "<<post<<" pre= "<<pre<<"\n";
+    post = a++;
+    pre = ++b;
+    cout<<"After two postfix and prefix: \tpost = "<<post<<" pre= "<<pre<<"\n";  
+    return 0;
+}
+```
+
+output:
+```
+Inital values: 			post = 0 pre= 0
+After one postfix and prefix: 	post = 0 pre= 1
+After two postfix and prefix: 	post = 1 pre= 2
+```
+
+
+| Operator | Example | Equivalence |
+|---|---|---|
+| += | A += B | A = A + B |
+| -= | A -= B | A = A - B |
+| *= | A *= B | A = A * B |
+| /= | A /= B | A = A / B |
+| %= | A %= B | A = A % B |
+
+
+```
+/*Goal: understand variable assignment operators*/
+
+#include<iostream>
+
+int main()
+{
+    int a = 0;
+    std::cout<<"Variable\t\tOperation\tResult\n";
+    std::cout<<"a = "<<a;
+    a += 2;
+    std::cout<<"\t\t\ta += 2 \t\t a = "<<a<<"\n";
+
+    std::cout<<"a = "<<a<<" : ";
+    a -= 4;
+    std::cout<<"\t\ta -= 4 \t\t a = "<<a<<"\n";
+
+    int b = 3;
+    std::cout<<"a = "<<a<<", b = "<<b<<" : ";
+    a *= b;
+    std::cout<<"\ta *= b \t\t a = "<<a<<"\n";
+
+    std::cout<<"a = "<<a<<", b = "<<b<<" : ";
+    a /= b;
+    std::cout<<"\ta /= b \t\t a = "<<a<<"\n";
+
+
+    return 0;
+}
+```
+
+output:
+
+| Variable | Operation | Result |
+|---|---|---|
+| a = 0 | a += 2 | a = 2 |
+| a = 2 : | a -= 4 | a = -2 |
+| a = -2, b = 3 : | a *= b | a = -6 |
+| a = -6, b = 3 : | a /= b | a = -2 |
