@@ -452,3 +452,71 @@ int main()
 }
 
 ```
+
+#### Infinite Loops
+Sometimes it is desired to create an infinite loop. For example, in embedded systems a infinite loop is often used for the main task.
+
+To create an infinite loop using a for loop:
+```
+for( ; ;)
+{
+     std::cout<<"This for loop will run forever\n";
+}
+```
+
+To create an infinite loop using a while loop:
+
+```
+while(1)
+{
+     std::cout<<"This while loop will run forever\n";
+}
+```
+
+
+#### Exiting Loops
+To exit a loop before it completes its normal sequence, we need to use control statements.
+
+The two most commonly used are:
+- break
+- continue
+
+
+The break statement:
+
+The break statement will end the loop and begin executing the first statement that comes AFTER the end of the loop.
+
+The continue statement: The continue statement will force the next iteration to be executed.
+```
+/*Goal: understand the break and conitnue statements*/
+
+#include<iostream>
+
+
+int main()
+{
+    int a = 0;
+    while(a < 5)
+    {
+        std::cout<<"a = "<<a<<"\n";       
+        a++;
+        if(a == 3)
+            break;
+    }
+    std::cout<<"The first statement after the first while loop\n\n";
+
+
+    while(a < 15)
+    {
+        a++;
+        if(a == 10)
+        {
+            std::cout<<"\tWhen a=10, go back to the top of the loop";
+            std::cout<<"\n\tThis means a=10 is skipped.\n";
+            continue;
+        }
+        std::cout<<"After continue a = "<<a<<"\n";           
+    }
+    return 0;
+}
+```
