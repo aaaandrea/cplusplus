@@ -378,3 +378,77 @@ int main()
 `size_t` - This alias in found in the cstddef library. To use size_t you will have to include the cstddef library.
 
 You can use `size_t` in a loop where you would normally define the variable type of the iterator.
+
+
+### While Loops
+C++ has two forms of the while loop:
+- while loops
+- do .. while loops
+
+#### While Loop
+```
+/*Goal: understand the syntax of while loops*/
+
+#include <iostream>
+
+int main()
+{
+    int entry = 0;
+
+    //with this while loop the condition is true
+    //so the statements are executed
+    while(entry <=5)
+    {
+        std::cout<<"incrementing entry = "<<entry<<"\n";
+        entry++;
+    }
+
+    //with this while loop the condition is false
+    //so the statements are not executed
+    while(entry < 5)
+    {
+        std::cout<<"decrementing entry = "<<entry<<"\n";
+        entry--;
+    }
+
+    return 0;
+}
+```
+
+#### Do...While Loops
+The statements are executed the first time through the loop. Then the condition is checked. This is slightly different than the while loop. Which, you may recall, required the condition to be true BEFORE entering the loop for the first time.
+
+Below is an example of the do...while loop.
+C++ do ... while loops have the following syntax:
+
+```
+/*Goal: understand the do..while loop*/
+
+#include <iostream>
+
+
+int main()
+{
+    int count = 0;
+
+    //This do..while loop will execute until count =5
+    do
+    {
+        std::cout<<"Count = "<<count<<"\n";
+        count++;
+    }while(count < 5);
+
+
+    int otherCount = 6;
+    //This do..while loop will execute once. Even though
+    //otherCount > 5
+    do
+    {
+        std::cout<<"othercount = "<<otherCount<<"\n";
+        otherCount++;
+    }while(otherCount < 5);
+
+    return 0;
+}
+
+```
