@@ -594,13 +594,13 @@ Find the errors so the code executes correctly.
 
  void main ()
  {
-   int FTemp = 0
-   int CTemp = 0;
+   float FTemp = 0
+   float CTemp = 0;
 
    cout >> "Enter a Farenheit temperature: ";
    cin << FTemp;
 
-   CTemp = FTemp - 32 / (9/5);
+   CTemp = FTemp - 32.0 / (9.0/5.0);
    cout >> "\n <<FTemp >> " in Farenheit = "  >> CTemp >> in Celsius\n";
    return 0;
  }
